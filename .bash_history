@@ -116,3 +116,131 @@ clear
 cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/
 sudo cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/
 sudo vim  /etc/X11/xorg.conf.d/
+vim .config/sxhkd/sxhkdrc 
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+rm -rf .emacs.d/
+~/.emacs.d/bin/doom install
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+~/.emacs.d/bin/doom install
+ls
+vim .config/sxhkd/sxhkdrc 
+vim .config/bspwm/bspwmrc 
+vim .config/sxhkd/sxhkdrc 
+cd ..
+ls
+cd nikita/
+ls
+ls -a
+vim .bash_history 
+git status
+history | cp
+pacman -S ripgrep
+sudo pacman -S ripgrep
+history | rg cp
+sudo cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
+cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
+cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
+vim .xinitrc
+sudo pacman -S lazygit
+sudo pacman fd
+sudo pacman -S fd
+clear
+git init --bare $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+echo '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' >> $HOME/.bashrc
+config status
+config add .xinitrc 
+config status
+config status -v
+vim .xinitrc 
+config status -v
+config add .xinitrc 
+config status -v
+config commit -m "Copy default .xinitrc"
+git config --global user.email "nikitaklimenko.good@gmail.com"
+git config --global user.name "nikita"
+config commit -m "Copy default .xinitrc"
+vim .xinirc
+vim .xinitrc 
+config add .xinitrc 
+git status -v
+config status -v
+clear
+config commit -m "xinit bspwm"
+config log
+config add .config/
+ls
+config status -v
+config status -v | less
+clear
+config status
+config commit -m "Add bspwm, sxhkd, rofi default configs"
+cd .config/
+ls
+ls -a
+vim bspwm/bspwmrc 
+vim sxhkd/sxhkdrc 
+vim rofi/config.rasi 
+cd //
+cd ..
+cd ~/
+ls
+ls -a
+config add .bash_history 
+config commit
+rg xprof
+rg --debug xprof
+rg help
+rg --help
+rg --help | rg ignore
+rg --help | rg hid
+rg --hidden xprof
+vim .xinitrc 
+vim .xprofile
+source .xprofile 
+pacman -S xset
+sudo pacman -S xset
+sudo pacman -S xcape
+pacman -S xset
+source .xprofile 
+vim .xprofile 
+source .xprofile 
+clear
+sudo pacman -S xset
+sudo pacman -S xorg-xset
+source .xprofile 
+clear
+cd .bashrc 
+vim .bash
+vim .bashrc 
+source .bashrc
+vim .bashrc 
+source .bashrc
+config status
+config show -v
+config status -v
+config -v status
+config diff HEAD
+vim .config/sxhkd/sxhkdrc 
+clear
+config status
+config status
+ls
+ls -a
+vim .bashrc
+rofi
+rofi -show run
+clear
+emacs
+ls
+clear
+ls
+shutdown now
+vim .config/rofi/config.rasi
+vim .config/sxhkd/sxhkdrc 
+vim .config/bspwm/bspwmrc 
+vim .config/bspwm/bspwmrc 
+vim .config/bspwm/bspwmrc 
