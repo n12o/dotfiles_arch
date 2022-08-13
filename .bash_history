@@ -244,3 +244,117 @@ vim .config/sxhkd/sxhkdrc
 vim .config/bspwm/bspwmrc 
 vim .config/bspwm/bspwmrc 
 vim .config/bspwm/bspwmrc 
+mkdir temp
+cd temp/
+git clone https://aur.archlinux.org/ttf-all-the-icons.git
+cd ttf-all-the-icons/
+makepkg -si
+sudo pacman -S base-devel
+makepkg -si
+clear
+sudo pacman -S barrier
+clear
+ls /etc/hosts
+cat /etc/hosts
+cat /etc/hosts
+vim /etc/host
+vim /etc/hosts
+sudo pacman -S keepassxc
+clear
+keepassxc
+clear
+ls
+config status
+cd ..
+ls
+cd ..
+ls
+lazygit --git-dir=$HOME/.cfg --work-tree=$HOME
+alacritty -e lazygit --git-dir=$HOME/.cfg --work-tree=$HOME
+alacritty -e lazygit --git-dir=$HOME/.cfg --work-tree=$HOME
+alacritty -e lazygit --git-dir=$HOME/.cfg --work-tree=$HOME
+vim .bashrc 
+config
+source .bashrc 
+config
+config status
+config log
+config stash
+clear
+config
+config add .bashrc
+config
+git 
+git status
+clear
+vim .bashrc 
+git config
+vim .bashrc 
+lazygit
+config
+vim .bashrc 
+lazygit $CONFIG
+source .bashrc 
+lazygit $CONFIg
+lazygit $CONFIG
+vim .bashrc 
+ls
+clear
+ls -a
+config status
+vim .bashrc 
+vim .bashrc 
+lazygit $CONFIG
+vim .bashrc 
+source .bashrc 
+config status
+config
+vim .bashrc 
+config
+source .bashrc
+config status
+config add .bashrc 
+vim .bash_profile 
+config add .bash_profile 
+vim .bash_logout 
+config add .bash_logout
+vim .dmrc 
+config add .dmrc
+vim .gitconfig 
+config status
+config status -v
+config commit -m "Add bash dotfiles"
+clear
+ls -a
+ls
+config show
+clear
+config add .gitconfig 
+config commit -m "Add gitconfig"
+ls -a
+git log
+config log
+clear
+ls -a
+vim .Xauthority 
+vim .xinitrc 
+config add .xinitrc .xprofile 
+vim .Xauthority 
+vim .xsession-errors
+vim .xsession-errors.old 
+config status
+config add .xinitrc
+config status
+config commit -m "Add xprofile"
+clear
+config status
+ls
+ls -a
+cd .config/
+ls
+cd keepassxc/
+ls
+vim keepassxc.ini 
+cd ..
+cd ..
+clear
