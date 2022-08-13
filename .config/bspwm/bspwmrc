@@ -26,3 +26,5 @@ bspc config active_border_color         "#073642"
 
 # Cursor
 xsetroot -cursor_name left_ptr &
+
+$HOME/.config/polybar/launch.sh

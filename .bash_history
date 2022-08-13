@@ -358,3 +358,76 @@ vim keepassxc.ini
 cd ..
 cd ..
 clear
+ls
+clear
+ls
+vim .bashrc
+config
+source .bashrc
+config
+config_add .doom.d/
+config
+config_add .doom.d/
+config
+config
+clear
+vim 
+vim .
+vim .
+man bspc
+vim .
+bspc node -t floating
+bspc node -t tiling
+bspc node -t tiled
+man bspc
+alacritty -e config | bspc node -t floating
+alacritty -e config
+alacritty -e config
+alacritty --hold -e config
+vim .
+vim .
+shutdown now
+alacritty
+alacritty | bspc node -t floating
+barrier
+cd .config/
+ls
+sudo pacman -S polybar
+cd .config/
+ls
+cd ..
+mkdir .config/polybar
+cp /etc/polybar/config.ini .config/polybar/
+clear
+polybar
+vim .config/bspwm/bspwmrc 
+vim .config/polybar/launch.sh
+vim .config/bspwm/bspwmrc 
+lscpi -v
+lspci -v
+lspci -v | rg ether
+lspci -v | rg Ether
+lspci -v | rg -C 10 Ether 
+dmesg | rg r8169
+sudo dmesg | rg r8169
+vim .bash_history 
+iwctl
+iwctl
+vim .bash_history 
+iw
+iwctl
+ls
+ls -a
+cd .config/
+ls
+cd polybar/
+ls
+bash launch.sh
+vim launch.sh
+./.config/polybar/launch.sh
+chmod +x ./.config/polybar/launch.sh
+./.config/polybar/launch.sh
+vim launch.sh
+vim ./.config/polybar/launch.sh
+./.config/polybar/launch.sh
+vim .config/polybar/config.ini 
