@@ -1,3 +1,4 @@
+
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
@@ -5,58 +6,11 @@
 
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+;; clients, file templates and snippets.
+(setq! user-full-name "Nikita Klimenko"
+      user-mail-address "nikitaklimenko.good@gmail.com")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-;;
-;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
-;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
-;; refresh your font settings. If Emacs still can't find your font, it likely
-;; wasn't installed correctly. Font issues are rarely Doom issues!
-
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
-
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
-
-;; Whenever you reconfigure a package, make sure to wrap your config in an
-;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
-;;
-;;   (after! PACKAGE
-;;     (setq x y))
-;;
-;; The exceptions to this rule:
-;;
-;;   - Setting file/directory variables (like `org-directory')
-;;   - Setting variables which explicitly tell you to set them before their
-;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
-;;   - Setting doom variables (which start with 'doom-' or '+').
-;;
-;; Here are some additional functions/macros that will help you configure Doom.
+;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
 ;; - `use-package!' for configuring packages
@@ -69,8 +23,140 @@
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 ;; This will open documentation for it, including demos of how they are used.
-;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
-;; etc).
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+;;
+
+;; TODO remove evil mode in vterm
+;; (add-hook 'vterm-mode-hook #'turn-off-evil-mode)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Git
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(add-hook 'magit-mode-hook #'magit-delta-mode)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Org mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; define todo keywords
+(after! org
+  (setq! org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "INACTIVE(i)" "MEETING(m)" "|" "DONE(d)" "CANCELLED(p)")))
+(setq! org-todo-keyword-faces
+        '(("[-]" . +org-todo-active)
+        ("MEETING" . +org-todo-active)
+        ("STRT" . +org-todo-active)
+        ("NEXT" . +org-todo-onhold)
+        ("WAITING" . +org-todo-onhold)
+        ("INACTIVE" . +org-todo-onhold)
+        ("[?]" . +org-todo-onhold)
+        ("WAIT" . +org-todo-onhold)
+        ("HOLD" . +org-todo-onhold)
+        ("PROJ" . +org-todo-project)
+        ("NO" . +org-todo-cancel)
+        ("CANCELLED" . +org-todo-cancel)
+        ("KILL" . +org-todo-cancel))
+  ))
+
+
+
+;; set default directories
+(setq! org-directory "~/org/"
+       ;; recursively find files in directories under org-directory
+       org-agenda-files (directory-files-recursively (eval org-directory) "\.org$")
+       ;; ;; additionally ignore this directory in projectile
+       org-roam-directory "~/org/roam"
+       )
+
+(setq! projectile-indexing-method 'native)
+
+
+
+(setq! org-roam-capture-templates `(("d" "default" plain "%?"
+  :target (file+head "${slug}.org"
+                     "#+title: ${title}\n")
+  :unnarrowed t)))
+
+;; flycheck seems useless in org mode
+;; TODO maybe I don't need to append `not' twice?
+(setq! flycheck-global-modes
+       (if (boundp 'flycheck-global-modes)
+           ;; append to allow editing variable across files
+           (append '(not org-mode) flycheck-global-modes)
+         '(not org-mode)))
+
+(setq org-archive-location (concat "_archive/archive-%s"
+                                   ".org_archive::"))
+
+(setq! org-pomodoro-manual-break t)
+(setq! org-pomodoro-length 90) ; 1.5 hours pomodoro length
+(setq! org-pomodoro-short-break-length 20) ; 20 minutes long break time
+(setq! org-pomodoro-long-break-length 20) ; same as short break
+
+(setq! org-journal-file-type 'weekly)
+(setq! org-journal-file-format "%Y-%W.org")
+(setq! org-journal-time-format "")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Pomodoro
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; https://github.com/TatriX/pomidor#customization
+
+;; disable pomodoro ticking sounds
+(setq! pomidor-sound-tick nil
+      pomidor-sound-tack nil)
+
+;; default regular work/break
+(setq! pomidor-seconds (* 25 60)) ; 25 minutes for the work period
+(setq! pomidor-break-seconds (* 5 60)) ; 5 minutes break time
+
+;; default long work/break
+(setq! pomidor-breaks-before-long 3) ; wait 4 short breaks before long break
+(setq! pomidor-long-break-seconds (* 5 60)) ; 5 minutes long break time
+
+;; default faces
+;; for a full list of available faces see `customize' or search for `defface' in the source code
+(after! pomidor
+  (set-face-attribute 'pomidor-break-face nil :foreground "#00ff00")
+  (set-face-attribute 'pomidor-overwork-face nil :foreground "#00abff")
+  (set-face-attribute 'pomidor-skip-face nil :foreground "#abbac3")
+  (set-face-attribute 'pomidor-work-face nil :foreground "#ff0000"))
+
+;; Hydra
+
+(defhydra pomidor-hydra (:color pink
+                         :hint nil)
+
+  "
+^Match^            ^Line-wise^           ^Manual^
+^^^^^^----------------------------------------------------
+_h_: hold             _H_: history          _s_: save
+_u_: unhold           _n_: history next     _q_: quit
+_r_: reset            _p_: history prev
+
+"
+  ("b" #'(lambda() (interactive)(pomidor-break)(require 'org)(org-clock-out)))
+  ("u" #'pomidor-unhold)
+  ("h" #'pomidor-hold)
+  ("r" #'pomidor-reset)
+  ("H" #'pomidor-history)
+  ("n" #'pomidor-history-next)
+  ("p" #'pomidor-history-previous)
+  ("s" #'pomidor-save-session)
+  ("<RET>" #'(lambda() (interactive)(require 'org)(org-clock-goto)) :color blue)
+  ("q" #'pomidor-quit "quit" :color blue)
+  ("<escape>" #'pomidor-quit "quit" :color blue))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; other config files
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(load! "+bindings")
+(load! "+laptop")
+(load! "+theme")
+(load! "+editor")
