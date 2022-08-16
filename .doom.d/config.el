@@ -74,6 +74,7 @@
 
 (setq! projectile-indexing-method 'native)
 
+(add-hook 'org-mode-hook #'+word-wrap-mode)
 
 
 (setq! org-roam-capture-templates `(("d" "default" plain "%?"
