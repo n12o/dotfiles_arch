@@ -27,8 +27,10 @@ linux-firmware
 linux-headers
 man-db
 man-pages
+neovim
 network-manager-applet
 networkmanager
+nitrogen
 nm-connection-editor
 polybar
 ranger
