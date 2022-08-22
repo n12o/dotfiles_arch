@@ -25,6 +25,7 @@ lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers
+linux-zen
 man-db
 man-pages
 neovim
@@ -34,14 +35,17 @@ nitrogen
 nm-connection-editor
 polybar
 ranger
+reflector
 ripgrep
 rofi
 rsync
 stalonetray
 sudo
 sxhkd
+syncthing
 texinfo
 udisks2
+unzip
 vi
 vim
 xcape
@@ -54,4 +58,5 @@ xorg-server
 xorg-xinit
 xorg-xset
 xterm
+yt-dlp
 zsh
