@@ -5,4 +5,4 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 
-export PATH="${PATH}:/home/nikita/.emacs.d/bin"
+export PATH="${PATH}:/home/nikita/.emacs.d/bin:/home/nikita/scripts"
