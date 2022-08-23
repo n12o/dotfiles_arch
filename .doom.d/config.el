@@ -30,7 +30,12 @@
 
 ;; TODO remove evil mode in vterm
 ;; (add-hook 'vterm-mode-hook #'turn-off-evil-mode)
+;;
 
+;; start maximized
+;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+
+(add-to-list 'after-make-frame-functions #'toggle-frame-fullscreen)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Git
@@ -94,8 +99,8 @@
                                    ".org_archive::"))
 
 (setq! org-pomodoro-manual-break t)
-(setq! org-pomodoro-length 90) ; 1.5 hours pomodoro length
-(setq! org-pomodoro-short-break-length 20) ; 20 minutes long break time
+(setq! org-pomodoro-length 25) ; 25 min pomodoro length
+(setq! org-pomodoro-short-break-length 5) ; 5 minutes long break time
 (setq! org-pomodoro-long-break-length 20) ; same as short break
 
 (setq! org-journal-file-type 'weekly)
