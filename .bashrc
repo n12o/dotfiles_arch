@@ -12,3 +12,5 @@ alias config_git='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias fzpac="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pkglist_gen="pacman -Qqen > pkglist.txt && pacman -Qqem > pkglist_aur.txt"
 alias lock="dm-tool lock"
+
+set -o vi 
