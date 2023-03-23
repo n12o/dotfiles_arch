@@ -57,3 +57,8 @@
  (:leader
   "n i" #'org-insert-todo-heading
   ))
+
+(map!
+ (:leader
+  "n b" #'org-toggle-narrow-to-subtree
+  ))
