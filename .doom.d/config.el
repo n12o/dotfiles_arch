@@ -106,6 +106,7 @@
 (setq! org-journal-file-type 'weekly)
 (setq! org-journal-file-format "%Y-%W.org")
 (setq! org-journal-time-format "")
+(setq! org-journal-date-format "%A, %m/%d/%Y")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Pomodoro
